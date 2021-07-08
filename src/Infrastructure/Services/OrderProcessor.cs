@@ -26,15 +26,9 @@ namespace Microsoft.eShopWeb.Infrastructure.Services
 
         public async Task<bool> UploadOrderToOrderProcessorAsync(Order order)
         {
-            var orderFile = new OrderFile
-            {
-                FileName = $"Order-{order.Id}.json",
-                Order = order
-            };
+            var orderJson = JsonSerializer.Serialize(order);
 
-            var orderFileJson = JsonSerializer.Serialize(orderFile);
-
-            var content = new StringContent(orderFileJson, Encoding.UTF8, "application/json");
+            var content = new StringContent(orderJson, Encoding.UTF8, "application/json");
 
             using (var message = await _httpClient.PostAsync(_url, content))
             {
