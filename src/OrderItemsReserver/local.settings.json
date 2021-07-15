@@ -1,0 +1,8 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;AccountName=orderitemsreserverstorag;AccountKey=FJ7Pw+EwZtzSt73iLaFasthJdNgHMMSgVzKWcFunsO+7K1Eua3O+DD8Y3us0r2XqFcL6xzWF86cmJJfQzkx+CA==;BlobEndpoint=https://orderitemsreserverstorag.blob.core.windows.net/;TableEndpoint=https://orderitemsreserverstorag.table.core.windows.net/;QueueEndpoint=https://orderitemsreserverstorag.queue.core.windows.net/;FileEndpoint=https://orderitemsreserverstorag.file.core.windows.net/",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+    "AzureStorageAccount": "DefaultEndpointsProtocol=https;AccountName=storageaccounteshop8d42;AccountKey=apXQBISnwN9aNf24vtS8RVJoG/2NXGbLyBuXx+m6qZj2hEZIbWpKJTxNWmOzC5GaCj0Bahp3ZRaQ7k7Vy8sfrQ==;EndpointSuffix=core.windows.net"
+  }
+}

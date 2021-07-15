@@ -1,0 +1,8 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+    "OrderProcessorCosmosDBConnection": "AccountEndpoint=https://eshop-cosmos-db.documents.azure.com:443/;AccountKey=JALZlFbMqjdygQ1KhjiMqniawYN6xk9eeqkPnvMN7sXihh4NFLhwb6qhnY8GOb14Pl4EUYXTvE34SlMZVqF0lg==;"
+  }
+}

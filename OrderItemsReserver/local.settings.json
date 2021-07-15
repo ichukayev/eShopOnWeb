@@ -1,0 +1,9 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;AccountName=eshopstorageeastus;AccountKey=LY5wQ0IYerjShZPGpwOHGCJLYk7N/TJAWdrSl0vbI5nBJYVfg5Vd66JvM3SCz532XHau9rpmv/qe0+2CcPodug==;EndpointSuffix=core.windows.net",
+    "ServiceBusConnection": "Endpoint=sb://eshop-orders.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=aVwxCZVR/WGyCrTFFRo9gvn2DCMclJMqKtRTeSTSzuc=",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+    "AzureFileContainerName": "order-files"
+  }
+}
