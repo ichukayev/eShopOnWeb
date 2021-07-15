@@ -26,6 +26,10 @@ using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Mime;
+using Microsoft.Extensions.Azure;
+using Azure.Storage.Queues;
+using Azure.Storage.Blobs;
+using Azure.Core.Extensions;
 
 namespace Microsoft.eShopWeb.Web
 {
@@ -164,6 +168,11 @@ namespace Microsoft.eShopWeb.Web
             services.AddDatabaseDeveloperPageExceptionFilter();
 
             _services = services; // used to debug registered services
+            services.AddAzureClients(builder =>
+            {
+                builder.AddBlobServiceClient(Configuration["AzureOrdersBlobStorage:blob"], preferMsi: true);
+                builder.AddQueueServiceClient(Configuration["AzureOrdersBlobStorage:queue"], preferMsi: true);
+            });
         }
 
 
@@ -232,6 +241,31 @@ namespace Microsoft.eShopWeb.Web
             });
         }
 
+    }
+    internal static class StartupExtensions
+    {
+        public static IAzureClientBuilder<BlobServiceClient, BlobClientOptions> AddBlobServiceClient(this AzureClientFactoryBuilder builder, string serviceUriOrConnectionString, bool preferMsi)
+        {
+            if (preferMsi && Uri.TryCreate(serviceUriOrConnectionString, UriKind.Absolute, out Uri serviceUri))
+            {
+                return builder.AddBlobServiceClient(serviceUri);
+            }
+            else
+            {
+                return builder.AddBlobServiceClient(serviceUriOrConnectionString);
+            }
+        }
+        public static IAzureClientBuilder<QueueServiceClient, QueueClientOptions> AddQueueServiceClient(this AzureClientFactoryBuilder builder, string serviceUriOrConnectionString, bool preferMsi)
+        {
+            if (preferMsi && Uri.TryCreate(serviceUriOrConnectionString, UriKind.Absolute, out Uri serviceUri))
+            {
+                return builder.AddQueueServiceClient(serviceUri);
+            }
+            else
+            {
+                return builder.AddQueueServiceClient(serviceUriOrConnectionString);
+            }
+        }
     }
 
 }
